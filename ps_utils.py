@@ -8,8 +8,8 @@ def get_credentials(section_name, mm_config_file_name=None):
     """url, port, token, team = get_credentials(section_name)"""
     config = ConfigParser()
 
-    if db_config_file_name is None:
-        db_config_file_name = ".mm_service.conf"
+    if mm_config_file_name is None:
+        mm_config_file_name = ".mm_service.conf"
 
     # Note: ${HOME}/.mm_service.conf
     cred_file = Path("{}/{}".format(os.environ.get('HOME'), mm_config_file_name))
