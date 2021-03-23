@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 from mmpy_bot import Bot, Settings
-from my_plugin import MyPlugin
+
 import logging
+from ps_logger import setup_logger
 from ps_utils import get_credentials
 from Pharm_plugin import Pharm_plugin
-from GL_plugin import GL_plugin
+#from GL_plugin import GL_plugin
 
 if __name__ == '__main__':
     app_name = 'Pharm_bot'
@@ -18,14 +19,15 @@ if __name__ == '__main__':
         url, port, token, team = get_credentials(config_section)
         bot = Bot(
             settings=Settings(MATTERMOST_URL=url,
-                              MATTERMOST_PORT=port,
+                              MATTERMOST_PORT=int(port),
                               BOT_TOKEN=token,
                               BOT_TEAM=team,
                               SSL_VERIFY=True,
                               ),  # Either specify your settings here or as environment variables.
-            plugins=[Pharm_plugin(),
-                     GL_plugin()],  # Add your own plugins here.
+            plugins=[ Pharm_plugin() ]
+                     #GL_plugin()],  # Add your own plugins here.
         )
+        assert bot is None, "choke creating bot object ... "
         bot.run()
     except (Exception, EOFError) as ex:
         logging.exception("uh, oh .... we got an exception!!")

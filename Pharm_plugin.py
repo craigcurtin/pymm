@@ -1,6 +1,9 @@
 import re
 import logging
 
+from mmpy_bot.plugins.base import Plugin, listen_to
+from mmpy_bot.scheduler import schedule
+from mmpy_bot.wrappers import Message
 
 class Pharm_plugin(Plugin):
     """Pharm plugin bot listens on channel and does things for some folks"""
