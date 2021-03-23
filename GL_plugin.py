@@ -1,6 +1,7 @@
 import re
 
-BOT_ANCHOR='&'
+BOT_ANCHOR = '&'
+
 
 class GL_plugin(Plugin):
 
@@ -19,4 +20,3 @@ class GL_plugin(Plugin):
     @listen_to('env status (.*)', re.IGNORECASE)
     async def env_status(self, message, something):
         self.driver.reply_to(message, 'Here is %s' % something)
-

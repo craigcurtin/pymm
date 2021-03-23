@@ -16,9 +16,11 @@ def get_credentials(section_name, mm_config_file_name=None):
     assert os.path.isfile(cred_file), "error can't read MM credentials file ... {}".format(cred_file)
     config.read(cred_file)
 
-    uid = config.get(section_name, 'uid')
-    token = config.get(section_name, 'token')
+    mm_url = config.get(section_name, 'mm_url')
+    mm_port = config.get(section_name, 'mm_port')
+    mm_token = config.get(section_name, 'mm_token')
+    mm_team = config.get(section_name, 'mm_team')
 
     logging.info("Reading MM credentials from: {}, using section: {}".format(cred_file, section_name))
 
-    return uid, token
+    return mm_url, mm_port, mm_token, mm_team
