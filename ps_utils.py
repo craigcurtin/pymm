@@ -5,7 +5,7 @@ import logging
 
 
 def get_credentials(section_name, mm_config_file_name=None):
-    """get_credentials for Mattermost credentilas"""
+    """url, port, token, team = get_credentials(section_name)"""
     config = ConfigParser()
 
     if db_config_file_name is None:
@@ -16,11 +16,11 @@ def get_credentials(section_name, mm_config_file_name=None):
     assert os.path.isfile(cred_file), "error can't read MM credentials file ... {}".format(cred_file)
     config.read(cred_file)
 
-    mm_url = config.get(section_name, 'mm_url')
-    mm_port = config.get(section_name, 'mm_port')
-    mm_token = config.get(section_name, 'mm_token')
-    mm_team = config.get(section_name, 'mm_team')
+    url = config.get(section_name, 'url')
+    port = config.get(section_name, 'port')
+    token = config.get(section_name, 'token')
+    team = config.get(section_name, 'team')
 
     logging.info("Reading MM credentials from: {}, using section: {}".format(cred_file, section_name))
 
-    return mm_url, mm_port, mm_token, mm_team
+    return url, port, token, team

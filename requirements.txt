@@ -1,3 +1,5 @@
 mmpy_bot
 pytz
+gidgetlab
+gidgetlab-kit
 

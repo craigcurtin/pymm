@@ -15,12 +15,12 @@ if __name__ == '__main__':
     setup_logger(app_name, log_directory, log_level)
     config_section = 'pharm_bot'
     try:
-        mm_url, mm_port, mm_token, mm_team = get_credentials(config_section)
+        url, port, token, team = get_credentials(config_section)
         bot = Bot(
-            settings=Settings(MATTERMOST_URL=mm_url,
-                              MATTERMOST_PORT=mm_port,
-                              BOT_TOKEN=mm_token,
-                              BOT_TEAM=mm_team,
+            settings=Settings(MATTERMOST_URL=url,
+                              MATTERMOST_PORT=port,
+                              BOT_TOKEN=token,
+                              BOT_TEAM=team,
                               SSL_VERIFY=True,
                               ),  # Either specify your settings here or as environment variables.
             plugins=[Pharm_plugin(),
