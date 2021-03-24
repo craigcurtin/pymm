@@ -8,6 +8,13 @@ from mmpy_bot.wrappers import Message
 class Pharm_plugin(Plugin):
     """Pharm plugin bot listens on channel and does things for some folks"""
 
+    # def on_start(self):
+    #     """Notifies some channel that the bot is now running."""
+    #     self.driver.create_post(channel_id="Announcemwents", message="The bot just started running!")
+    # # def on_stop(self):
+    #     """Notifies some channel that the bot is shutting down."""
+    #     self.driver.create_post(channel_id="some_channel_id", message="I'll be right back!")
+
     @listen_to("wake up")
     async def wake_up(self, message: Message):
         logging.debug(message)

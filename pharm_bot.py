@@ -17,7 +17,7 @@ if __name__ == '__main__':
     config_section = 'pharm_bot'
     try:
         url, port, token, team = get_credentials(config_section)
-        bot = Bot(
+        pharm_bot = Bot(
             settings=Settings(MATTERMOST_URL=url,
                               MATTERMOST_PORT=int(port),
                               BOT_TOKEN=token,
@@ -27,8 +27,8 @@ if __name__ == '__main__':
             plugins=[ Pharm_plugin() ]
                      #GL_plugin()],  # Add your own plugins here.
         )
-        assert bot is None, "choke creating bot object ... "
-        bot.run()
+        assert pharm_bot is not None, "Assert:  Choked creating pharm_bot object ... "
+        pharm_bot.run()
     except (Exception, EOFError) as ex:
         logging.exception("uh, oh .... we got an exception!!")
         raise SystemExit(-1)
